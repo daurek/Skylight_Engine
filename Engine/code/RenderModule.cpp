@@ -11,14 +11,12 @@
 // Project .h files
 #include "RendererComponent.hpp"
 
-
-#include <iostream>
-
-
 namespace engine
 {
 	RenderModule::RenderModule(Window * _window) : window(_window)
 	{
+		//ComponentFactory::RegisterFactory("render3d", RenderModule::CreateComponent);
+
 		std::shared_ptr< glt::Camera > camera(new glt::Camera(20.f, 1.f, 50.f, 1.f));
 		std::shared_ptr< glt::Light  > light(new glt::Light);
 		
@@ -30,7 +28,7 @@ namespace engine
 
 	std::shared_ptr< Component > RenderModule::CreateComponent(const rapidxml::xml_node<>& node)
 	{
-		std::string obj_file_path = node.first_node->value();
+		std::string obj_file_path = node.first_node()->value();
 
 		std::shared_ptr< RendererComponent > renderComponent(new RendererComponent("../../assets/meshes/" + obj_file_path));
 		

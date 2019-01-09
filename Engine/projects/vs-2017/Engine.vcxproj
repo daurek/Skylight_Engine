@@ -88,7 +88,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>..\..\libraries\sdl2\lib\x64;..\..\libraries\opengl-toolkit\lib\Debug</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\libraries\sdl2\lib\DebugLib;..\..\libraries\opengl-toolkit\lib\DebugLib</AdditionalLibraryDirectories>
       <AdditionalDependencies>OpenGL Toolkit.lib;opengl32.lib;SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -96,8 +96,7 @@
       </Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>
-      </Command>
+      <Command>copy "$(SolutionDir)..\..\libraries\sdl2\lib\DebugLib\sdl2.dll" "$(TargetDir)"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
