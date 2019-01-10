@@ -37,13 +37,13 @@ namespace engine
 
 		Window window{1080, 720};
 
-		RenderModule renderModule{ &window };		
+		//RenderModule renderModule{ &window };		
 
 		Scene scene{ "../../assets/scene.xml" };
 
 		InputTask inputTask;
 		Kernel::instance().Add(inputTask);
-		Kernel::instance().Add(*renderModule.get_task());
+		//Kernel::instance().Add(*renderModule.get_task());
 		Kernel::instance().Run();
 
 		return 0;

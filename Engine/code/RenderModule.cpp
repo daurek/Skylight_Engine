@@ -13,18 +13,19 @@
 
 namespace engine
 {
-	RenderModule::RenderModule(Window * _window) : window(_window)
-	{
-		//ComponentFactory::RegisterFactory("render3d", RenderModule::CreateComponent);
+	RenderModule::RenderModuleFactory RenderModule::factory;
 
-		std::shared_ptr< glt::Camera > camera(new glt::Camera(20.f, 1.f, 50.f, 1.f));
-		std::shared_ptr< glt::Light  > light(new glt::Light);
-		
-		graphics_scene.add("Camera", camera);
-		graphics_scene.add("light", light);
-		
-		task = RenderTask{ *this };
-	}
+	//RenderModule::RenderModule(Window * _window) : window(_window)
+	//{
+	//	//ComponentFactory::RegisterFactory("render3d", RenderModule::CreateComponent);
+	//	std::shared_ptr< glt::Camera > camera(new glt::Camera(20.f, 1.f, 50.f, 1.f));
+	//	std::shared_ptr< glt::Light  > light(new glt::Light);
+	//	
+	//	graphics_scene.add("Camera", camera);
+	//	graphics_scene.add("light", light);
+	//	
+	//	task = RenderTask{ *this };
+	//}
 
 	std::shared_ptr< Component > RenderModule::CreateComponent(const rapidxml::xml_node<>& node)
 	{
@@ -36,4 +37,5 @@ namespace engine
 
 		return renderComponent;
 	}
+	
 }

@@ -4,14 +4,28 @@
 #include "SDL.h"
 #include "Render_Node.hpp"
 // This project .h files
-#include "ComponentFactory.hpp"
+#include "Module.hpp"
 #include "Window.hpp"
 #include "Task.hpp"
 
 namespace engine
 {
-	class RenderModule : public ComponentFactory
+	class RenderModule : public Module
 	{
+		class RenderModuleFactory : public ModuleFactory
+		{
+		public:
+			RenderModuleFactory()
+			{
+				Module::RegisterModule("render3d", this);
+			}
+
+			std::shared_ptr< Module > CreateModule() override
+			{
+				return std::shared_ptr< Module >(new RenderModule);
+			};
+		};
+
 		class RenderTask : public Task
 		{
 			RenderModule * module;
@@ -29,18 +43,21 @@ namespace engine
 
 		};
 
+	public: 
+		static RenderModuleFactory factory;
 		glt::Render_Node graphics_scene;
 		Window    * window;
 		RenderTask task;
 
+
+	//public:
+
+		//RenderModule(Window * _window);
+
 	public:
 
-		RenderModule(Window * _window);
-
-	public:
-
-		std::shared_ptr< Component > CreateComponent(const rapidxml::xml_node<> & node);
-		Task * get_task() { return &task; }
+		std::shared_ptr< Component > CreateComponent(const rapidxml::xml_node<> & node) override;
+		Task * get_task() override { return &task; }
 
 	};
 }

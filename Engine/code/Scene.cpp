@@ -5,13 +5,28 @@
 #include "rapidxml_utils.hpp"
 #include "SDL.h"
 // Project .h files
-#include "ComponentFactory.hpp"
+#include "RenderModule.hpp"
+#include "Kernel.hpp"
 
 namespace engine
 {
 	Scene::Scene(const std::string & scene_content_xml)
 	{
 		LoadScene(scene_content_xml);
+		InitKernel();
+	}
+
+	void Scene::InitKernel()
+	{
+		for (auto module : modules)
+		{
+			Task * task = module.second->get_task();
+
+			if (task)
+			{
+				Kernel::instance().Add(*task);
+			}
+		}
 	}
 
 	void Scene::LoadScene(const std::string & path)
@@ -50,24 +65,54 @@ namespace engine
 			this->entities[entity_id] = entity;
 		}
 	}
+	
 	void Scene::LoadComponents(rapidxml::xml_node<>* components, Entity & entity)
 	{
+		Module::ModuleMap & factories = Module::get_module_map();
+
 		for (rapidxml::xml_node<>* component_node = components->first_node(); component_node; component_node = component_node->next_sibling())
 		{
 			if (std::string(component_node->name()) == "component")
 			{
 				std::string componentName = component_node->first_attribute()->value();
 				// CHECK VALIDITY
-				SDL_Log(component_node->first_attribute()->value());
+				
+				std::shared_ptr<Module> module = nullptr;
+				
+				// Does that module exist on our scene
+				if (modules.count(componentName) == 0)
+				{
+					// Does that factory exist
+					if (factories.count(componentName) == 0)
+					{
+						if (componentName == "render3d")
+						{
+							factories[componentName] = &RenderModule::factory;
+							modules[componentName] = factories[componentName]->CreateModule();
+							module = modules[componentName];
+							SDL_Log("Added Render Factory");
+						}
+						
+					}
+					else
+					{
+						SDL_Log("Added Render Module");
+						modules[componentName] = factories[componentName]->CreateModule();
+						module = modules[componentName];
+					}
+				}
+				else
+				{
+					SDL_Log("Got Module");
+					module = modules[componentName];
+				}
+				SDL_Log("aa");
+				if (module)
+				{
+					//module->CreateComponent(*component_node);
+					SDL_Log("Component Created");
+				}
 
-				std::shared_ptr< Component > component = ComponentFactory::instance().CreateComponent(componentName, *component_node);
-
-				SDL_Log(component_node->first_node()->value());
-				//fnv32(component_id)
-				//if (component)
-				//{
-				//	//std::shared_ptr< RendererComponent > rendererComponent;
-				//}
 			}
 			
 		}

@@ -3,7 +3,5 @@
 
 namespace engine
 {
-	Module::Module()
-	{
-	}
+	Module::ModuleMap Module::module_factories;
 }

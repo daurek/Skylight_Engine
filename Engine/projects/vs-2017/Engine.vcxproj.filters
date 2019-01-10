@@ -45,10 +45,10 @@
     <ClCompile Include="..\..\code\Scene.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\ComponentFactory.cpp">
+    <ClCompile Include="..\..\code\Module.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\Module.cpp">
+    <ClCompile Include="..\..\code\Factory.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,10 +83,10 @@
     <ClInclude Include="..\..\code\Scene.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\ComponentFactory.hpp">
+    <ClInclude Include="..\..\code\Module.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Module.hpp">
+    <ClInclude Include="..\..\code\Factory.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
