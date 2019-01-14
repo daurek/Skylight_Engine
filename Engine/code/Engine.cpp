@@ -35,11 +35,11 @@ namespace engine
 		
 		// Create Window
 
-		Window window{1080, 720};
+		// Window window{1080, 720};
 
 		//RenderModule renderModule{ &window };		
 
-		Scene scene{ "../../assets/scene.xml" };
+		Scene scene{ "../../assets/scene.xml"};
 
 		InputTask inputTask;
 		Kernel::instance().Add(inputTask);

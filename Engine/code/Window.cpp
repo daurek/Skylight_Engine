@@ -12,73 +12,62 @@ namespace engine
 	
 	Window::Window(int _windowWidth, int _windowHeight) : window_width(_windowWidth), window_height(_windowHeight)
 	{
-		SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 5);
-		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-		SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+		window = nullptr;
+		gl_context = nullptr;
 
-		window = SDL_CreateWindow
-		(
-			"Engine",
-			SDL_WINDOWPOS_UNDEFINED,
-			SDL_WINDOWPOS_UNDEFINED,
-			window_width,
-			window_height,
-			SDL_WINDOW_OPENGL //| SDL_WINDOW_SHOWN
-		);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
 
-		// Create context
-		gl_context = SDL_GL_CreateContext(window);
 
-		// Load OpenGL through glad
-		gladLoadGLLoader(SDL_GL_GetProcAddress);
+		if (SDL_Init(SDL_INIT_VIDEO) >= 0)
+		{
+			window = SDL_CreateWindow
+			(
+				"Engine",
+				SDL_WINDOWPOS_UNDEFINED,
+				SDL_WINDOWPOS_UNDEFINED,
+				window_width,
+				window_height,
+				SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN
+			);
+
+			if (window)
+			{
+
+				// Create context
+				gl_context = SDL_GL_CreateContext(window);
+
+				if (gl_context)
+				{
+					glt::initialize_opengl_extensions();
+				}
+				
+				// Set Vsync
+				//SDL_GL_SetSwapInterval(1);
+
+				//SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+			}
+		}
 		
-		// Set Vsync
-		SDL_GL_SetSwapInterval(1);
-
-		// Disabling culling TO REMOVE
-		glDisable(GL_DEPTH_TEST);
-		glDisable(GL_CULL_FACE);
-
-		
-		glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
-
-
 
 		
 	}
 
 	Window::~Window()
 	{
-		// destruir contexto
-		SDL_GL_DeleteContext(gl_context);
-		//// destruir ventana
-		SDL_DestroyWindow(window);
+		// Destroy context
+		if (gl_context) SDL_GL_DeleteContext(gl_context);
+		// Destroy Window
+		if (window) SDL_DestroyWindow(window);
 
 		SDL_Quit();
 	}
 
 	void Window::Display()
 	{
-		glClear(GL_COLOR_BUFFER_BIT);
-		
-		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//);
-		//glViewport(0, 0, 1080, 720);
-		//glLoadIdentity();
-		//glTranslatef(400.f, 300.f, 0.f);
-		
-		//glBegin(GL_TRIANGLES);
-		//{
-		//	glColor3f(1.f, 0.f, 0.f);
-		//	glVertex3f(-200.f, -200.f, 0.f);
-		//	glColor3f(0.f, 1.f, 0.f);
-		//	glVertex3f(+200.f, -200.f, 0.f);
-		//	glColor3f(0.f, 0.f, 1.f);
-		//	glVertex3f(0.f, 200.f, 0.f);
-		//}
-		//glEnd();
-		
+		//glClearColor(0, 0, 0, 1);
+
+		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		SDL_GL_SwapWindow(window);
 	}
 

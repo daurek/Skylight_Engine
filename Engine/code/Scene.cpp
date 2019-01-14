@@ -8,8 +8,11 @@
 #include "RenderModule.hpp"
 #include "Kernel.hpp"
 
+#include <iostream>
+
 namespace engine
 {
+
 	Scene::Scene(const std::string & scene_content_xml)
 	{
 		LoadScene(scene_content_xml);
@@ -68,6 +71,7 @@ namespace engine
 	
 	void Scene::LoadComponents(rapidxml::xml_node<>* components, Entity & entity)
 	{
+
 		Module::ModuleMap & factories = Module::get_module_map();
 
 		for (rapidxml::xml_node<>* component_node = components->first_node(); component_node; component_node = component_node->next_sibling())
@@ -82,34 +86,38 @@ namespace engine
 				// Does that module exist on our scene
 				if (modules.count(componentName) == 0)
 				{
+					if (factories.size() != 0)
+					{
+						SDL_Log("allo");
+					}
+					
 					// Does that factory exist
 					if (factories.count(componentName) == 0)
 					{
+						
 						if (componentName == "render3d")
 						{
-							factories[componentName] = &RenderModule::factory;
+							
+							factories[componentName] = &RenderModule::RenderModuleFactory{};
 							modules[componentName] = factories[componentName]->CreateModule();
 							module = modules[componentName];
-							SDL_Log("Added Render Factory");
 						}
 						
 					}
 					else
 					{
-						SDL_Log("Added Render Module");
 						modules[componentName] = factories[componentName]->CreateModule();
 						module = modules[componentName];
 					}
 				}
 				else
 				{
-					SDL_Log("Got Module");
 					module = modules[componentName];
 				}
-				SDL_Log("aa");
+
 				if (module)
 				{
-					//module->CreateComponent(*component_node);
+					module->CreateComponent(*component_node);
 					SDL_Log("Component Created");
 				}
 

@@ -14,10 +14,9 @@ namespace engine
 	class Scene
 	{
 		std::map< std::string, std::shared_ptr< Module >> modules;
-		std::map< std::string, std::shared_ptr< Entity >> entities;
+		std::map< std::string, std::shared_ptr< Entity >> entities;		
 
 	public:
-
 		Scene(const std::string & scene_content_xml);
 
 	private:

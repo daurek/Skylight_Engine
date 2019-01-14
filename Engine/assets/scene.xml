@@ -12,16 +12,6 @@
 			</component>
 		
 		</entity>
-		<entity id="test">
-			<!--<component id="transform">
-				<position>10,10,10</position>
-				<scale>0.5</scale>
-			</component>-->
-			<component id="render3d">
-				<model>bunny.obj</model>
-			</component>
-		
-		</entity>
 	</entities>
 
 </scene>
