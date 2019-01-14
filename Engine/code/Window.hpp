@@ -21,6 +21,7 @@ namespace engine
 
 	public:
 
+		void	Clear();
 		void	Display();
 		int		get_window_width()				{ return window_width;	}
 		int		get_window_height()				{ return window_height;	}

@@ -7,14 +7,15 @@
 // Project .h files
 #include "RenderModule.hpp"
 #include "Kernel.hpp"
+#include "Window.hpp"
 
-#include <iostream>
 
 namespace engine
 {
 
-	Scene::Scene(const std::string & scene_content_xml)
+	Scene::Scene(const std::string & scene_content_xml, Window & given_window)
 	{
+		window = &given_window;
 		LoadScene(scene_content_xml);
 		InitKernel();
 	}
@@ -71,7 +72,6 @@ namespace engine
 	
 	void Scene::LoadComponents(rapidxml::xml_node<>* components, Entity & entity)
 	{
-
 		Module::ModuleMap & factories = Module::get_module_map();
 
 		for (rapidxml::xml_node<>* component_node = components->first_node(); component_node; component_node = component_node->next_sibling())
@@ -88,26 +88,30 @@ namespace engine
 				{
 					if (factories.size() != 0)
 					{
-						SDL_Log("allo");
+						SDL_Log("test");
 					}
 					
 					// Does that factory exist
 					if (factories.count(componentName) == 0)
 					{
 						
-						if (componentName == "render3d")
-						{
-							
-							factories[componentName] = &RenderModule::RenderModuleFactory{};
-							modules[componentName] = factories[componentName]->CreateModule();
-							module = modules[componentName];
-						}
+						//if (componentName == "render3d")
+						//{
+						//	
+						//	//factories[componentName] = &RenderModule::RenderModuleFactory{};
+						//	modules[componentName] = factories[componentName]->CreateModule(*this);
+						//	module = modules[componentName];
+						//}
 						
 					}
 					else
 					{
-						modules[componentName] = factories[componentName]->CreateModule();
-						module = modules[componentName];
+						if (componentName == "render3d")
+						{
+							// Create module
+							modules[componentName] = factories[componentName]->CreateModule(*this);
+							module = modules[componentName];
+						}
 					}
 				}
 				else
@@ -117,8 +121,7 @@ namespace engine
 
 				if (module)
 				{
-					module->CreateComponent(*component_node);
-					SDL_Log("Component Created");
+					entity.AddComponent(componentName, module->CreateComponent(*component_node));
 				}
 
 			}

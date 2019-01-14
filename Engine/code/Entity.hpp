@@ -12,11 +12,16 @@ namespace engine
 	class Entity
 	{
 
-		std::map< uint16_t, std::shared_ptr< Component > > components;
-		std::map< uint16_t, std::shared_ptr< Entity > > children;
+		std::map< std::string, std::shared_ptr< Component	> > components;
+		std::map< std::string, std::shared_ptr< Entity		> > children;
 
 	public:
 		Entity();
+
+		void AddComponent(std::string id,const std::shared_ptr< Component > & component)
+		{
+			components[id] = component;
+		}
 
 	};
 }

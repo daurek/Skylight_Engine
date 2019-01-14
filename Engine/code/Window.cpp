@@ -63,11 +63,13 @@ namespace engine
 		SDL_Quit();
 	}
 
+	void Window::Clear()
+	{
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	}
+
 	void Window::Display()
 	{
-		//glClearColor(0, 0, 0, 1);
-
-		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		SDL_GL_SwapWindow(window);
 	}
 

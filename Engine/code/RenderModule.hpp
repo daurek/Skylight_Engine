@@ -1,17 +1,17 @@
 #pragma once
 
 // Other libraries .h files
-
 #include "Render_Node.hpp"
 // This project .h files
 #include "Module.hpp"
-#include "Window.hpp"
+//#include "Window.hpp"
 #include "Task.hpp"
 
-#include "SDL_log.h"
 
 namespace engine
 {
+	class Scene;
+
 	class RenderModule : public Module
 	{
 	public:
@@ -23,9 +23,9 @@ namespace engine
 				Module::RegisterModule("render3d", this);
 			}
 
-			std::shared_ptr< Module > CreateModule() override
+			std::shared_ptr< Module > CreateModule(Scene & scene) override
 			{
-				return std::shared_ptr< Module >(new RenderModule());
+				return std::shared_ptr< Module >(new RenderModule(scene));
 			};
 		};
 
@@ -38,21 +38,18 @@ namespace engine
 			RenderTask() = default;
 			RenderTask(RenderModule & _module) : module(&_module) {}
 
-			void Run() override
-			{
-				module->graphics_scene.render();
-				module->window.Display();
-			}
+			void Run() override;
+		
 
 		};
 
 	public: 
+
 		static RenderModuleFactory factory;
 		glt::Render_Node graphics_scene;
-		Window window;
 		RenderTask task;
-
-		RenderModule();
+		Scene * scene;
+		RenderModule(Scene & _scene);
 
 	public:
 

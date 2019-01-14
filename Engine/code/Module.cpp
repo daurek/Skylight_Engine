@@ -1,5 +1,6 @@
 // Header file
 #include "Module.hpp"
+#include "Scene.hpp"
 
 namespace engine
 {

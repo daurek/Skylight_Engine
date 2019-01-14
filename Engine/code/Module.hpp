@@ -12,6 +12,8 @@
 
 namespace engine
 {
+	class Scene;
+
 	class Module
 	{
 	public:
@@ -20,19 +22,20 @@ namespace engine
 		{
 		public:
 
-			virtual std::shared_ptr< Module > CreateModule() = 0;
+			virtual std::shared_ptr< Module > CreateModule(Scene & scene) = 0;
 		};
 
 		typedef std::map< std::string, ModuleFactory * > ModuleMap;
 
 	private:
 
-
 		static ModuleMap module_factories;
 
 	public:
 
 		Module() = default;
+
+		Scene * scene;
 
 		virtual ~Module() {};
 
