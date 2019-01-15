@@ -6,23 +6,31 @@
 
 // Project .h files
 #include "Component.hpp"
+#include "TransformComponent.hpp"
 
-namespace engine
+namespace skylight
 {
+
 	class Entity
 	{
 
+		std::string name;
 		std::map< std::string, std::shared_ptr< Component	> > components;
 		std::map< std::string, std::shared_ptr< Entity		> > children;
 
 	public:
-		Entity();
+		Entity(std::string _name) : name(_name) {};
+		TransformComponent  transform;
 
 		void AddComponent(std::string id,const std::shared_ptr< Component > & component)
 		{
+			component->entity = this;
 			components[id] = component;
 		}
 
+		//virtual void Update() = 0;
+
 	};
+
 }
 

@@ -11,31 +11,35 @@ namespace skylight
 {
 	class Scene;
 
-	class RenderModule : public Module
+	class TransformModule : public Module
 	{
+
 	public:
-		class RenderModuleFactory : public ModuleFactory
+
+		class TransformModuleFactory : public ModuleFactory
 		{
+
 		public:
-			RenderModuleFactory()
+
+			TransformModuleFactory()
 			{
-				Module::RegisterModule("render3d", this);
+				Module::RegisterModule("transform", this);
 			}
 
 			std::shared_ptr< Module > CreateModule(Scene & scene) override
 			{
-				return std::shared_ptr< Module >(new RenderModule(scene));
+				return std::shared_ptr< Module >(new TransformModule(scene));
 			};
 		};
 
-		class RenderTask : public Task
+		class TransformTask : public Task
 		{
-			RenderModule * module;
+			TransformModule * module;
 
 		public:
 
-			RenderTask() = default;
-			RenderTask(RenderModule & _module) : module(&_module) {}
+			TransformTask() = default;
+			TransformTask(TransformModule & _module) : module(&_module) {}
 
 			void Run() override;
 		
@@ -44,11 +48,10 @@ namespace skylight
 
 	public: 
 
-		static RenderModuleFactory factory;
-		glt::Render_Node graphics_scene;
-		RenderTask task;
+		static TransformModuleFactory factory;
+		TransformTask task;
 		Scene * scene;
-		RenderModule(Scene & _scene);
+		TransformModule(Scene & _scene);
 
 	public:
 

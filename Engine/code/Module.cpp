@@ -2,7 +2,7 @@
 #include "Module.hpp"
 #include "Scene.hpp"
 
-namespace engine
+namespace skylight
 {
 	Module::ModuleMap Module::module_factories;
 }

@@ -8,27 +8,23 @@
 #include "Camera.hpp"
 #include "Model_Obj.hpp"
 #include "Light.hpp"
-#include "Cube.hpp"
+#include "SDL_log.h"
 // Project .h files
 #include "RendererComponent.hpp"
 #include "Scene.hpp"
 #include "Window.hpp"
 
-namespace engine
+namespace skylight
 {
-
 	RenderModule::RenderModuleFactory RenderModule::factory;
 
 	RenderModule::RenderModule(Scene & _scene) : scene (&_scene)
 	{
 		// Create nodes
-		//std::shared_ptr< glt::Model  > cube(new glt::Model);
 		std::shared_ptr< glt::Camera > camera(new glt::Camera(20.f, 1.f, 50.f, 1.f));
 		std::shared_ptr< glt::Light  > light(new glt::Light);
-		//cube->add(std::shared_ptr < glt::Drawable >(new glt::Cube), glt::Material::default_material());
 
 		// Add nodes to the scene
-		//graphics_scene.add("cube", cube);
 		graphics_scene.add("camera", camera);
 		graphics_scene.add("light", light);
 
@@ -44,29 +40,31 @@ namespace engine
 		// Get the obj path
 		std::string obj_file_path = node.first_node()->value();
 		std::string obj_name = obj_file_path.substr(0, obj_file_path.find("."));
-		
+		// Log
+		SDL_Log("			Component __ Renderer");
+		std::string log_component = "				Model Path: " + obj_file_path;
+		SDL_Log(log_component.c_str());
 		// Create component with that path
 		std::shared_ptr< RendererComponent > renderComponent(new RendererComponent("../../assets/meshes/" + obj_file_path));
-		
 		graphics_scene.add(obj_name,renderComponent->get_model());
-		graphics_scene.get(obj_name)->translate(glt::Vector3(1.f, 1, 1.f));
+		//graphics_scene.get(obj_name)->translate(glt::Vector3(1.f, 1, 1.f));
 
 		return renderComponent;
 	}
 	
 	void RenderModule::RenderTask::Run()
 	{
+		// Update viewport and aspect ratio
 		GLsizei width = GLsizei(module->scene->window->get_window_width());
 		GLsizei height = GLsizei(module->scene->window->get_window_height());
 		module->graphics_scene.get_active_camera()->set_aspect_ratio(float(width) / height);
-
 		glViewport(0, 0, width, height);
 
-		/*auto cube = module->graphics_scene.get("cube");
+		/*auto camera = module->graphics_scene.get("camera");
 
-		cube->rotate_around_x(0.01f);
-		cube->rotate_around_y(0.02f);
-		cube->rotate_around_z(0.03f);*/
+		camera->rotate_around_x(0.01f);
+		camera->rotate_around_y(0.02f);
+		camera->rotate_around_z(0.03f);*/
 
 
 		/*auto cube2 = module->graphics_scene.get("sphere");
@@ -74,7 +72,7 @@ namespace engine
 		cube2->rotate_around_x(0.01f);
 		cube2->rotate_around_y(0.02f);
 		cube2->rotate_around_z(0.03f);
-*/
+		*/
 
 		module->scene->window->Clear();
 		module->graphics_scene.render();

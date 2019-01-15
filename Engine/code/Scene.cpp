@@ -3,19 +3,18 @@
 
 // Libraries .h files
 #include "rapidxml_utils.hpp"
-#include "SDL.h"
+#include "SDL_log.h"
 // Project .h files
 #include "RenderModule.hpp"
 #include "Kernel.hpp"
 #include "Window.hpp"
 
 
-namespace engine
+namespace skylight
 {
 
-	Scene::Scene(const std::string & scene_content_xml, Window & given_window)
+	Scene::Scene(const std::string & scene_content_xml, Window & given_window) : window(&given_window)
 	{
-		window = &given_window;
 		LoadScene(scene_content_xml);
 		InitKernel();
 	}
@@ -35,6 +34,8 @@ namespace engine
 
 	void Scene::LoadScene(const std::string & path)
 	{
+		SDL_Log("________Loading Scene________\n");
+
 		// Load xml
 		const char *char_path = path.c_str();
 		rapidxml::file<> xml_file(char_path);
@@ -45,14 +46,21 @@ namespace engine
 
 		// Load Entities
 		LoadEntities(doc.first_node()->first_node());
+		SDL_Log("\n	________Scene  Loaded________");
+
 	}
 
 	void Scene::LoadEntities(rapidxml::xml_node<>* entities)
 	{
+		SDL_Log("\n	________Loading Entities________");
 		// Loop through every entity
 		for (rapidxml::xml_node<>* entity_node = entities->first_node(); entity_node; entity_node = entity_node->next_sibling())
 		{
 			std::string entity_id = entity_node->first_attribute()->value();
+
+			SDL_Log("\n		________Loading Entity________");
+			std::string log_entity = "			" + entity_id;
+			SDL_Log(log_entity.c_str());
 
 			//for (? ? ? ) // para cada atributo de <entity>
 			//{
@@ -62,7 +70,7 @@ namespace engine
 			// Check validity
 			if (entity_id.empty()) continue;
 			// Create the entity
-			std::shared_ptr< Entity > entity(new Entity);
+			std::shared_ptr< Entity > entity(new Entity(entity_id));
 			// Load it's components
 			LoadComponents(entity_node, *entity);
 			// Add it to the scene entities
@@ -78,50 +86,43 @@ namespace engine
 		{
 			if (std::string(component_node->name()) == "component")
 			{
-				std::string componentName = component_node->first_attribute()->value();
+				std::string component_name = component_node->first_attribute()->value();
 				// CHECK VALIDITY
 				
 				std::shared_ptr<Module> module = nullptr;
 				
-				// Does that module exist on our scene
-				if (modules.count(componentName) == 0)
+				// Does that module not exist on our scene
+				if (modules.count(component_name) == 0)
 				{
 					if (factories.size() != 0)
 					{
-						SDL_Log("test");
+						//SDL_Log("test");
 					}
 					
 					// Does that factory exist
-					if (factories.count(componentName) == 0)
+					if (factories.count(component_name) == 0)
 					{
-						
-						//if (componentName == "render3d")
-						//{
-						//	
-						//	//factories[componentName] = &RenderModule::RenderModuleFactory{};
-						//	modules[componentName] = factories[componentName]->CreateModule(*this);
-						//	module = modules[componentName];
-						//}
-						
+						// ERROR
 					}
 					else
 					{
-						if (componentName == "render3d")
-						{
-							// Create module
-							modules[componentName] = factories[componentName]->CreateModule(*this);
-							module = modules[componentName];
-						}
+						SDL_Log("\n							[_______Created module_______]");
+						std::string log_module = "								" + component_name;
+						SDL_Log(log_module.c_str());
+						SDL_Log("							[____________________________]");
+						modules[component_name] = factories[component_name]->CreateModule(*this);
+						module = modules[component_name];
 					}
 				}
+				// If it exists then get it
 				else
 				{
-					module = modules[componentName];
+					module = modules[component_name];
 				}
 
 				if (module)
 				{
-					entity.AddComponent(componentName, module->CreateComponent(*component_node));
+					entity.AddComponent(component_name, module->CreateComponent(*component_node));
 				}
 
 			}

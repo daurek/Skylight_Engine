@@ -1,7 +1,10 @@
 // Header file
 #include "Component.hpp"
 
-namespace engine
+// Project .h files
+#include "Entity.hpp"
+
+namespace skylight
 {
 	Component::Component()
 	{

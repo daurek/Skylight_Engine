@@ -7,10 +7,10 @@
 #include "OpenGL.hpp"
 
 
-namespace engine
+namespace skylight
 {
 	
-	Window::Window(int _windowWidth, int _windowHeight) : window_width(_windowWidth), window_height(_windowHeight)
+	Window::Window(int _windowWidth, int _windowHeight, bool _fullscreen) : window_width(_windowWidth), window_height(_windowHeight), fullscreen(_fullscreen)
 	{
 		window = nullptr;
 		gl_context = nullptr;
@@ -23,7 +23,7 @@ namespace engine
 		{
 			window = SDL_CreateWindow
 			(
-				"Engine",
+				"Skylight Engine",
 				SDL_WINDOWPOS_UNDEFINED,
 				SDL_WINDOWPOS_UNDEFINED,
 				window_width,
@@ -40,12 +40,17 @@ namespace engine
 				if (gl_context)
 				{
 					glt::initialize_opengl_extensions();
+					glClearColor(0.3, 0.3, 0.6, 0.3);
+
+					if (fullscreen)
+					{
+						SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+					}
 				}
 				
 				// Set Vsync
 				//SDL_GL_SetSwapInterval(1);
 
-				//SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
 			}
 		}
 		

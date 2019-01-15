@@ -18,10 +18,13 @@
     <ClCompile Include="..\..\code\InputTask.cpp" />
     <ClCompile Include="..\..\code\Kernel.cpp" />
     <ClCompile Include="..\..\code\main.cpp" />
+    <ClCompile Include="..\..\code\Message.cpp" />
     <ClCompile Include="..\..\code\Module.cpp" />
     <ClCompile Include="..\..\code\RendererComponent.cpp" />
     <ClCompile Include="..\..\code\RenderModule.cpp" />
     <ClCompile Include="..\..\code\Scene.cpp" />
+    <ClCompile Include="..\..\code\TransformComponent.cpp" />
+    <ClCompile Include="..\..\code\TransformModule.cpp" />
     <ClCompile Include="..\..\code\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -31,11 +34,14 @@
     <ClInclude Include="..\..\code\Entity.hpp" />
     <ClInclude Include="..\..\code\InputTask.hpp" />
     <ClInclude Include="..\..\code\Kernel.hpp" />
+    <ClInclude Include="..\..\code\Message.hpp" />
     <ClInclude Include="..\..\code\Module.hpp" />
     <ClInclude Include="..\..\code\RendererComponent.hpp" />
     <ClInclude Include="..\..\code\RenderModule.hpp" />
     <ClInclude Include="..\..\code\Scene.hpp" />
     <ClInclude Include="..\..\code\Task.hpp" />
+    <ClInclude Include="..\..\code\TransformComponent.hpp" />
+    <ClInclude Include="..\..\code\TransformModule.hpp" />
     <ClInclude Include="..\..\code\Window.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -1,11 +1,14 @@
 #pragma once
 
-namespace engine
+namespace skylight
 {
+	class Entity;
+
 	class Component
 	{
 	public:
 		Component();
+		Entity * entity;
 	};
 }
 

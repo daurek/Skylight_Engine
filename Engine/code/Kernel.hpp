@@ -6,7 +6,7 @@
 // Project .h files
 #include "Task.hpp"
 
-namespace engine
+namespace skylight
 {
 	class Kernel
 	{

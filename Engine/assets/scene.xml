@@ -3,12 +3,22 @@
 
 	<entities>
 		<entity id="bunny">
-			<!--<component id="transform">
+			<component id="transform">
 				<position>10,10,10</position>
-				<scale>0.5</scale>
-			</component>-->
+				<scale>1</scale>
+			</component>
 			<component id="render3d">
 				<model>bunny.obj</model>
+			</component>
+		
+		</entity>
+		<entity id="sphere">
+			<component id="transform">
+				<position>2,2,2</position>
+				<scale>1</scale>
+			</component>
+			<component id="render3d">
+				<model>sphere.obj</model>
 			</component>
 		
 		</entity>

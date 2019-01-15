@@ -2,13 +2,10 @@
 
 namespace skylight
 {
-	class Engine
+	class Message
 	{
 	public:
-		Engine() = default;
-
-		int init();
-
+		Message();
 	};
 }
 

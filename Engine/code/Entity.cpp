@@ -1,13 +1,9 @@
 // Header file
 #include "Entity.hpp"
 
-namespace engine
+#include "TransformComponent.hpp"
+
+namespace skylight
 {
 
-	
-
-	Entity::Entity()
-	{
-
-	}
 }

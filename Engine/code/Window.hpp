@@ -3,7 +3,7 @@
 struct SDL_Window;
 typedef void * SDL_GLContext;
 
-namespace engine
+namespace skylight
 {
 	class Window
 	{
@@ -12,11 +12,12 @@ namespace engine
 
 		int				window_width;
 		int				window_height;
+		bool			fullscreen;
 
 	public:
 
-		Window() : Window(1080, 720) {};
-		Window(int _window_width, int _window_height);
+		Window() : Window(1080, 720, false) {};
+		Window(int _window_width, int _window_height, bool _fullscreen);
 		~Window();
 
 	public:
@@ -25,6 +26,6 @@ namespace engine
 		void	Display();
 		int		get_window_width()				{ return window_width;	}
 		int		get_window_height()				{ return window_height;	}
-
+		bool	get_fullscren()					{ return fullscreen;	}
 	};
 }

@@ -3,7 +3,7 @@
 
 #include "Model_Obj.hpp"
 
-namespace engine
+namespace skylight
 {
 	RendererComponent::RendererComponent(const std::string & path)
 	{

@@ -6,7 +6,7 @@
 // Project .h files
 #include "Kernel.hpp"
 
-namespace engine
+namespace skylight
 {
 	void InputTask::Run()
 	{
@@ -30,14 +30,14 @@ namespace engine
 					}
 
 					// DO IT LIKE THIS
-					/*auto item = keyboard_mapping.find(event.key.keysym.sym);
-
+					auto item = keyboard_mapping.find(event.key.keysym.sym);
+					
 					if (item != keyboard_mapping.end())
 					{
-						Message message(item->second);
+						/*Message message(item->second);
 
-						Message_Handler::instance().multicast(message);
-					}*/
+						Message_Handler::instance().multicast(message);*/
+					}
 					break;
 				}
 

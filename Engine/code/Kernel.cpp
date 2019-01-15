@@ -2,7 +2,7 @@
 #include "Kernel.hpp"
 
 
-namespace engine
+namespace skylight
 {
 	void Kernel::Add(Task & task)
 	{

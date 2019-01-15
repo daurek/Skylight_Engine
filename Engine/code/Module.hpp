@@ -10,7 +10,7 @@
 #include "Component.hpp"
 #include "Task.hpp"
 
-namespace engine
+namespace skylight
 {
 	class Scene;
 

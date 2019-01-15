@@ -10,7 +10,7 @@
 // Project .h files
 #include "Component.hpp"
 
-namespace engine
+namespace skylight
 {
 	class Factory
 	{

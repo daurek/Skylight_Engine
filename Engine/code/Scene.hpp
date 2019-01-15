@@ -10,7 +10,7 @@
 #include "Module.hpp"
 #include "Window.hpp"
 
-namespace engine
+namespace skylight
 {
 	class Window;
 

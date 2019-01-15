@@ -27,7 +27,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	*stdin = *hf_in;
 
 	// Start Engine
-	engine::Engine engine;
+	skylight::Engine engine;
 	engine.init();
 
 	return 0;
