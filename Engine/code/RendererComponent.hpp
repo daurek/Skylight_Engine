@@ -17,10 +17,13 @@ namespace skylight
 	public:
 
 		RendererComponent(const std::string & path);
+		
 
 	public:
 
 		std::shared_ptr< glt::Model > get_model() { return model; }
+
+		void Update() override;
 	};
 }
 

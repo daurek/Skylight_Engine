@@ -50,6 +50,7 @@ namespace skylight
 
 		static TransformModuleFactory factory;
 		TransformTask task;
+		std::list<std::shared_ptr< Component > > components;
 		Scene * scene;
 		TransformModule(Scene & _scene);
 

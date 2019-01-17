@@ -6,7 +6,6 @@
 
 // Project .h files
 #include "Component.hpp"
-#include "TransformComponent.hpp"
 
 namespace skylight
 {
@@ -20,13 +19,16 @@ namespace skylight
 
 	public:
 		Entity(std::string _name) : name(_name) {};
-		TransformComponent  transform;
+		//TransformComponent  transform;
 
 		void AddComponent(std::string id,const std::shared_ptr< Component > & component)
 		{
 			component->entity = this;
 			components[id] = component;
 		}
+
+		std::shared_ptr< Component	> get_component(const std::string & name) { return components[name]; }
+		
 
 		//virtual void Update() = 0;
 

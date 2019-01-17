@@ -37,8 +37,7 @@ namespace skylight
 		SDL_Log("________Loading Scene________\n");
 
 		// Load xml
-		const char *char_path = path.c_str();
-		rapidxml::file<> xml_file(char_path);
+		rapidxml::file<> xml_file(path.c_str());
 		
 		// Parse xml
 		rapidxml::xml_document<> doc;

@@ -46,6 +46,7 @@ namespace skylight
 
 		static RenderModuleFactory factory;
 		glt::Render_Node graphics_scene;
+		std::list<std::shared_ptr< Component > > components;
 		RenderTask task;
 		Scene * scene;
 		RenderModule(Scene & _scene);

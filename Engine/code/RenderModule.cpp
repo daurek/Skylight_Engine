@@ -23,7 +23,7 @@ namespace skylight
 		// Create nodes
 		std::shared_ptr< glt::Camera > camera(new glt::Camera(20.f, 1.f, 50.f, 1.f));
 		std::shared_ptr< glt::Light  > light(new glt::Light);
-
+		light->set_color(glt::Vector3(0.6, 0.2, 0.2));
 		// Add nodes to the scene
 		graphics_scene.add("camera", camera);
 		graphics_scene.add("light", light);
@@ -49,6 +49,8 @@ namespace skylight
 		graphics_scene.add(obj_name,renderComponent->get_model());
 		//graphics_scene.get(obj_name)->translate(glt::Vector3(1.f, 1, 1.f));
 
+		components.push_back(renderComponent);
+
 		return renderComponent;
 	}
 	
@@ -59,6 +61,11 @@ namespace skylight
 		GLsizei height = GLsizei(module->scene->window->get_window_height());
 		module->graphics_scene.get_active_camera()->set_aspect_ratio(float(width) / height);
 		glViewport(0, 0, width, height);
+
+		for (auto component : module->components)
+		{
+			component->Update();
+		}
 
 		/*auto camera = module->graphics_scene.get("camera");
 

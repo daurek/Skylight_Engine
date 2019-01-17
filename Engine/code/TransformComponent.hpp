@@ -13,14 +13,18 @@ namespace skylight
 	{
 
 	public:
-		typedef glt::Matrix44 Transformation;
-
-		Transformation transformation;
+		typedef glm::mat4 Transformation;
+		bool updated;
+		Transformation local_transform;
+		Transformation transform;
 		TransformComponent() {};
 		TransformComponent(Transformation _transformation);
 
 	public:
 
+		glm::mat4 & get_transform();
+		void Update() override;
+		void Move(glm::vec3 displacement);
 	};
 }
 

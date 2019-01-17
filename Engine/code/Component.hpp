@@ -9,6 +9,8 @@ namespace skylight
 	public:
 		Component();
 		Entity * entity;
+
+		virtual void Update() = 0;
 	};
 }
 

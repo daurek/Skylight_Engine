@@ -4,8 +4,21 @@
 	<entities>
 		<entity id="bunny">
 			<component id="transform">
-				<position>10,10,10</position>
-				<scale>1</scale>
+				<position>
+					<x>2</x>
+					<y>1</y>
+					<z>1</z>
+				</position>
+				<rotation>
+					<x>35</x>
+					<y>0</y>
+					<z>0</z>
+				</rotation>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+					<z>1</z>
+				</scale>
 			</component>
 			<component id="render3d">
 				<model>bunny.obj</model>
@@ -14,8 +27,21 @@
 		</entity>
 		<entity id="sphere">
 			<component id="transform">
-				<position>2,2,2</position>
-				<scale>1</scale>
+				<position>
+					<x>1</x>
+					<y>-1</y>
+					<z>1</z>
+				</position>
+				<rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</rotation>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+					<z>1</z>
+				</scale>
 			</component>
 			<component id="render3d">
 				<model>sphere.obj</model>
