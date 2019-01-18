@@ -60,6 +60,9 @@
     <ClCompile Include="..\..\code\Message.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\code\MessageHandler.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\Kernel.hpp">
@@ -105,6 +108,12 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\code\Message.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\MessageHandler.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\Listener.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

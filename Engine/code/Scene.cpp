@@ -34,7 +34,7 @@ namespace skylight
 
 	void Scene::LoadScene(const std::string & path)
 	{
-		SDL_Log("________Loading Scene________\n");
+		SDL_Log("\n________Loading Scene________\n");
 
 		// Load xml
 		rapidxml::file<> xml_file(path.c_str());
@@ -42,7 +42,7 @@ namespace skylight
 		// Parse xml
 		rapidxml::xml_document<> doc;
 		doc.parse<0>(xml_file.data());
-
+		
 		// Load Entities
 		LoadEntities(doc.first_node()->first_node());
 		SDL_Log("\n	________Scene  Loaded________");
@@ -86,32 +86,18 @@ namespace skylight
 			if (std::string(component_node->name()) == "component")
 			{
 				std::string component_name = component_node->first_attribute()->value();
-				// CHECK VALIDITY
 				
 				std::shared_ptr<Module> module = nullptr;
 				
 				// Does that module not exist on our scene
 				if (modules.count(component_name) == 0)
 				{
-					if (factories.size() != 0)
-					{
-						//SDL_Log("test");
-					}
-					
-					// Does that factory exist
-					if (factories.count(component_name) == 0)
-					{
-						// ERROR
-					}
-					else
-					{
-						SDL_Log("\n							[_______Created module_______]");
-						std::string log_module = "								" + component_name;
-						SDL_Log(log_module.c_str());
-						SDL_Log("							[____________________________]");
-						modules[component_name] = factories[component_name]->CreateModule(*this);
-						module = modules[component_name];
-					}
+					SDL_Log("\n							[_______Created module_______]");
+					std::string log_module = "								" + component_name;
+					SDL_Log(log_module.c_str());
+					SDL_Log("							[____________________________]");
+					modules[component_name] = factories[component_name]->CreateModule(*this);
+					module = modules[component_name];
 				}
 				// If it exists then get it
 				else

@@ -27,10 +27,12 @@ namespace skylight
 
 		// Create window
 		Window window{1080, 720, false};
-		// Load window
+		// Load scene with window
 		Scene scene{ "../../assets/scene.xml", window };
 
+		// Prepare input
 		InputTask inputTask;
+		inputTask.LoadInputMapping("../../assets/input_mapping.xml");
 		Kernel::instance().Add(inputTask);
 
 		// Start kernel loop
