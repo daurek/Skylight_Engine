@@ -97,7 +97,7 @@ namespace skylight
 			std::string key_log = "					" + key_name;
 			SDL_Log(key_log.c_str());
 
-			stoi(key_name);
+			//stoi(key_name);
 		}
 	}
 

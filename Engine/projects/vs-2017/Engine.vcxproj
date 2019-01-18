@@ -24,6 +24,8 @@
     <ClCompile Include="..\..\code\RendererComponent.cpp" />
     <ClCompile Include="..\..\code\RenderModule.cpp" />
     <ClCompile Include="..\..\code\Scene.cpp" />
+    <ClCompile Include="..\..\code\ScriptComponent.cpp" />
+    <ClCompile Include="..\..\code\ScriptModule.cpp" />
     <ClCompile Include="..\..\code\TransformComponent.cpp" />
     <ClCompile Include="..\..\code\TransformModule.cpp" />
     <ClCompile Include="..\..\code\Window.cpp" />
@@ -42,6 +44,8 @@
     <ClInclude Include="..\..\code\RendererComponent.hpp" />
     <ClInclude Include="..\..\code\RenderModule.hpp" />
     <ClInclude Include="..\..\code\Scene.hpp" />
+    <ClInclude Include="..\..\code\ScriptComponent.hpp" />
+    <ClInclude Include="..\..\code\ScriptModule.hpp" />
     <ClInclude Include="..\..\code\Task.hpp" />
     <ClInclude Include="..\..\code\TransformComponent.hpp" />
     <ClInclude Include="..\..\code\TransformModule.hpp" />
