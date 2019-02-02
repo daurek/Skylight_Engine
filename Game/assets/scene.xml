@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<scene>
+
+	<entities>
+    <entity id="player">
+      <component id="transform">
+        <position>
+          <x>0</x>
+          <y>0</y>
+          <z>5</z>
+        </position>
+        <rotation>
+          <x>0</x>
+          <y>0</y>
+          <z>0</z>
+        </rotation>
+        <scale>
+          <x>1</x>
+          <y>1</y>
+          <z>1</z>
+        </scale>
+      </component>
+      <component id="camera">
+        <camera_name>player_camera</camera_name>
+        <fov>20</fov>
+        <near>1</near>
+        <far>50</far>
+        <aspect_ratio>1</aspect_ratio>
+      </component>
+      <component id="audio">
+        <sound>error.wav</sound>
+      </component>
+    </entity>
+
+    <entity id="sun">
+      <component id="transform">
+        <position>
+          <x>2</x>
+          <y>2</y>
+          <z>2</z>
+        </position>
+        <rotation>
+          <x>0</x>
+          <y>0</y>
+          <z>0</z>
+        </rotation>
+        <scale>
+          <x>1</x>
+          <y>1</y>
+          <z>1</z>
+        </scale>
+      </component>
+      <component id="light">
+        <camera_name>sunlight</camera_name>
+        <red>0.8</red>
+        <green>1</green>
+        <blue>0.8</blue>
+      </component>
+
+    </entity>
+
+    <entity id="bunny">
+			<component id="transform">
+				<position>
+					<x>5</x>
+					<y>3</y>
+					<z>1</z>
+				</position>
+				<rotation>
+					<x>35</x>
+					<y>0</y>
+					<z>0</z>
+				</rotation>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+					<z>1</z>
+				</scale>
+			</component>
+			<component id="render3d">
+				<model>bunny.obj</model>
+			</component>
+    </entity>
+		
+		<entity id="sphere">
+			<component id="transform">
+				<position>
+					<x>-3</x>
+					<y>2</y>
+					<z>3</z>
+				</position>
+				<rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</rotation>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+					<z>1</z>
+				</scale>
+			</component>
+			<component id="render3d">
+				<model>sphere.obj</model>
+			</component>
+		</entity>
+
+    <entity id="number1">
+      <component id="transform">
+        <position>
+          <x>-9</x>
+          <y>-1</y>
+          <z>3</z>
+        </position>
+        <rotation>
+          <x>-90</x>
+          <y>0</y>
+          <z>32</z>
+        </rotation>
+        <scale>
+          <x>0.1f</x>
+          <y>0.1f</y>
+          <z>0.1f</z>
+        </scale>
+      </component>
+      <component id="render3d">
+        <model>number1.obj</model>
+      </component>
+    </entity>
+
+    <entity id="number2">
+      <component id="transform">
+        <position>
+          <x>-2</x>
+          <y>-1</y>
+          <z>-12</z>
+        </position>
+        <rotation>
+          <x>-90</x>
+          <y>0</y>
+          <z>0</z>
+        </rotation>
+        <scale>
+          <x>0.1f</x>
+          <y>0.1f</y>
+          <z>0.1f</z>
+        </scale>
+      </component>
+      <component id="render3d">
+        <model>number2.obj</model>
+      </component>
+    </entity>
+
+    <entity id="number3">
+      <component id="transform">
+        <position>
+          <x>0</x>
+          <y>-1</y>
+          <z>13</z>
+        </position>
+        <rotation>
+          <x>-90</x>
+          <y>0</y>
+          <z>180</z>
+        </rotation>
+        <scale>
+          <x>0.1f</x>
+          <y>0.1f</y>
+          <z>0.1f</z>
+        </scale>
+      </component>
+      <component id="render3d">
+        <model>number3.obj</model>
+      </component>
+    </entity>
+
+    <entity id="number4">
+      <component id="transform">
+        <position>
+          <x>2</x>
+          <y>-1</y>
+          <z>1</z>
+        </position>
+        <rotation>
+          <x>-90</x>
+          <y>0</y>
+          <z>25</z>
+        </rotation>
+        <scale>
+          <x>0.1f</x>
+          <y>0.1f</y>
+          <z>0.1f</z>
+        </scale>
+      </component>
+      <component id="render3d">
+        <model>number4.obj</model>
+      </component>
+    </entity>
+
+    <entity id="number5">
+      <component id="transform">
+        <position>
+          <x>10</x>
+          <y>-1</y>
+          <z>-11</z>
+        </position>
+        <rotation>
+          <x>-90</x>
+          <y>0</y>
+          <z>90</z>
+        </rotation>
+        <scale>
+          <x>0.1f</x>
+          <y>0.1f</y>
+          <z>0.1f</z>
+        </scale>
+      </component>
+      <component id="render3d">
+        <model>number5.obj</model>
+      </component>
+    </entity>
+
+    <entity id="ground">
+			<component id="transform">
+				<position>
+					<x>0</x>
+					<y>-1</y>
+					<z>0</z>
+				</position>
+				<rotation>
+					<x>0</x>
+					<y>0</y>
+					<z>0</z>
+				</rotation>
+				<scale>
+					<x>0.3</x>
+					<y>0.3</y>
+					<z>0.3</z>
+				</scale>
+			</component>
+			<component id="render3d">
+				<model>plane.obj</model>
+			</component>
+		</entity>
+
+    <entity id="wall1">
+      <component id="transform">
+        <position>
+          <x>0</x>
+          <y>3</y>
+          <z>-15</z>
+        </position>
+        <rotation>
+          <x>90</x>
+          <y>0</y>
+          <z>0</z>
+        </rotation>
+        <scale>
+          <x>0.3</x>
+          <y>0.08</y>
+          <z>0.3</z>
+        </scale>
+      </component>
+      <component id="render3d">
+        <model>plane.obj</model>
+      </component>
+    </entity>
+
+    <entity id="wall2">
+      <component id="transform">
+        <position>
+          <x>0</x>
+          <y>3</y>
+          <z>15</z>
+        </position>
+        <rotation>
+          <x>-90</x>
+          <y>0</y>
+          <z>0</z>
+        </rotation>
+        <scale>
+          <x>0.3</x>
+          <y>0.08</y>
+          <z>0.3</z>
+        </scale>
+      </component>
+      <component id="render3d">
+        <model>plane.obj</model>
+      </component>
+    </entity>
+
+    <entity id="wall3">
+      <component id="transform">
+        <position>
+          <x>15</x>
+          <y>3</y>
+          <z>0</z>
+        </position>
+        <rotation>
+          <x>0</x>
+          <y>0</y>
+          <z>90</z>
+        </rotation>
+        <scale>
+          <x>0.3</x>
+          <y>0.08</y>
+          <z>0.3</z>
+        </scale>
+      </component>
+      <component id="render3d">
+        <model>plane.obj</model>
+      </component>
+    </entity>
+
+    <entity id="wall4">
+      <component id="transform">
+        <position>
+          <x>-15</x>
+          <y>3</y>
+          <z>0</z>
+        </position>
+        <rotation>
+          <x>0</x>
+          <y>0</y>
+          <z>-90</z>
+        </rotation>
+        <scale>
+          <x>0.3</x>
+          <y>0.08</y>
+          <z>0.3</z>
+        </scale>
+      </component>
+      <component id="render3d">
+        <model>plane.obj</model>
+      </component>
+    </entity>
+
+    <entity id="ceiling">
+			<component id="transform">
+				<position>
+					<x>0</x>
+					<y>7</y>
+					<z>0</z>
+				</position>
+				<rotation>
+					<x>180</x>
+					<y>0</y>
+					<z>0</z>
+				</rotation>
+				<scale>
+					<x>0.3</x>
+					<y>0.3</y>
+					<z>0.3</z>
+				</scale>
+			</component>
+			<component id="render3d">
+				<model>plane.obj</model>
+			</component>
+		</entity>
+	</entities>
+
+</scene>

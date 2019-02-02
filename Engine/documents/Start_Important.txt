@@ -1,0 +1,32 @@
+Para Compilar:
+
+1. Abrir Engine/projects/vs-2017
+2. Abrir Engine.vcxproj
+3. Pulsar Ctrl-F5
+4. Listo
+
+PS: Al principio la ventana esta en blanco porque esta cargando los objs 
+(los numeros que me he descargado por internet pesaban un poco por lo que tarda mas)
+La consola esta para logear todo tipo de dato y proceso asi que al final la deje
+
+--------------------------------------------------------------------------------------------------------------------------
+
+Para Jugar
+
+1. Ir a Game/binaries/x64_Debug
+2. Lanzar Game.exe
+3. Listo
+
+Observaciones:
+- Esta cogiendo los datos de la escena y modelos desde Game/assets 
+- Para moverse es WASD, para apuntar es con el raton (solo esta activado el horizontal)
+- Se oye un sonido al tocar el numero incorrecto y intentar salir de la sala, al acabar los numeros los muros desaparecen
+- Game/libraries no existe ya que el proyecto de Game tiene como reference a Engine por lo que no necesito un Engine.lib
+--------------------------------------------------------------------------------------------------------------------------
+
+Para la Documentación doxygen:
+
+Ir a HTML_Doc o abrir html y seleccionar cualquier archivo HTML
+
+--------------------------------------------------------------------------------------------------------------------------
+Ilyass Sofi 4.3 

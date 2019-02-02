@@ -15,117 +15,126 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\code\Kernel.cpp">
+    <ClCompile Include="..\..\code\sources\AudioComponent.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\main.cpp">
+    <ClCompile Include="..\..\code\sources\AudioModule.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\Window.cpp">
+    <ClCompile Include="..\..\code\sources\CameraComponent.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\InputTask.cpp">
+    <ClCompile Include="..\..\code\sources\CameraModule.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\Engine.cpp">
+    <ClCompile Include="..\..\code\sources\Entity.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\Entity.cpp">
+    <ClCompile Include="..\..\code\sources\InputTask.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\Component.cpp">
+    <ClCompile Include="..\..\code\sources\Kernel.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\RendererComponent.cpp">
+    <ClCompile Include="..\..\code\sources\Module.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\RenderModule.cpp">
+    <ClCompile Include="..\..\code\sources\RendererComponent.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\Scene.cpp">
+    <ClCompile Include="..\..\code\sources\RenderModule.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\Module.cpp">
+    <ClCompile Include="..\..\code\sources\Scene.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\Factory.cpp">
+    <ClCompile Include="..\..\code\sources\ScriptModule.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\TransformComponent.cpp">
+    <ClCompile Include="..\..\code\sources\TransformComponent.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\TransformModule.cpp">
+    <ClCompile Include="..\..\code\sources\TransformModule.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\Message.cpp">
+    <ClCompile Include="..\..\code\sources\Window.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\MessageHandler.cpp">
+    <ClCompile Include="..\..\code\sources\LightComponent.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\ScriptComponent.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\code\ScriptModule.cpp">
+    <ClCompile Include="..\..\code\sources\LightModule.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\code\Kernel.hpp">
+    <ClInclude Include="..\..\code\headers\AudioComponent.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Window.hpp">
+    <ClInclude Include="..\..\code\headers\AudioModule.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Task.hpp">
+    <ClInclude Include="..\..\code\headers\CameraComponent.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\InputTask.hpp">
+    <ClInclude Include="..\..\code\headers\CameraModule.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Engine.hpp">
+    <ClInclude Include="..\..\code\headers\Entity.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Entity.hpp">
+    <ClInclude Include="..\..\code\headers\InputTask.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Component.hpp">
+    <ClInclude Include="..\..\code\headers\Kernel.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\RendererComponent.hpp">
+    <ClInclude Include="..\..\code\headers\Message.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\RenderModule.hpp">
+    <ClInclude Include="..\..\code\headers\MessageHandler.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Scene.hpp">
+    <ClInclude Include="..\..\code\headers\Module.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Module.hpp">
+    <ClInclude Include="..\..\code\headers\RendererComponent.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Factory.hpp">
+    <ClInclude Include="..\..\code\headers\RenderModule.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\TransformComponent.hpp">
+    <ClInclude Include="..\..\code\headers\Scene.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\TransformModule.hpp">
+    <ClInclude Include="..\..\code\headers\ScriptComponent.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Message.hpp">
+    <ClInclude Include="..\..\code\headers\ScriptModule.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\MessageHandler.hpp">
+    <ClInclude Include="..\..\code\headers\Task.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Listener.hpp">
+    <ClInclude Include="..\..\code\headers\TransformComponent.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\ScriptComponent.hpp">
+    <ClInclude Include="..\..\code\headers\TransformModule.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\ScriptModule.hpp">
+    <ClInclude Include="..\..\code\headers\Window.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\LightComponent.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\LightModule.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Listener.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Component.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

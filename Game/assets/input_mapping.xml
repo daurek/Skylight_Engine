@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<input-mapping>
+
+  <event id="forward">
+    <device type="keyboard">
+      <key-code>w</key-code>
+    </device>
+  </event>
+
+  <event id="backward">
+    <device type="keyboard">
+      <key-code>s</key-code>
+    </device>
+  </event>
+
+  <event id="right">
+    <device type="keyboard">
+      <key-code>d</key-code>
+    </device>
+  </event>
+
+  <event id="left">
+    <device type="keyboard">
+      <key-code>a</key-code>
+    </device>
+  </event>
+  
+	<event id="jump">
+		<device type="keyboard">
+			<key-code>space</key-code>	
+		</device>
+	</event>
+
+	<event id="take-item">
+		<device type="keyboard">
+			<key-code>e</key-code>
+		</device>
+	</event>
+	
+	<event id="exit">
+		<device type="keyboard">
+			<key-code>escape</key-code>
+		</device>
+	</event>
+
+</input-mapping>

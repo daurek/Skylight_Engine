@@ -11,45 +11,48 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\code\Component.cpp" />
-    <ClCompile Include="..\..\code\Factory.cpp" />
-    <ClCompile Include="..\..\code\Engine.cpp" />
-    <ClCompile Include="..\..\code\Entity.cpp" />
-    <ClCompile Include="..\..\code\InputTask.cpp" />
-    <ClCompile Include="..\..\code\Kernel.cpp" />
-    <ClCompile Include="..\..\code\main.cpp" />
-    <ClCompile Include="..\..\code\Message.cpp" />
-    <ClCompile Include="..\..\code\MessageHandler.cpp" />
-    <ClCompile Include="..\..\code\Module.cpp" />
-    <ClCompile Include="..\..\code\RendererComponent.cpp" />
-    <ClCompile Include="..\..\code\RenderModule.cpp" />
-    <ClCompile Include="..\..\code\Scene.cpp" />
-    <ClCompile Include="..\..\code\ScriptComponent.cpp" />
-    <ClCompile Include="..\..\code\ScriptModule.cpp" />
-    <ClCompile Include="..\..\code\TransformComponent.cpp" />
-    <ClCompile Include="..\..\code\TransformModule.cpp" />
-    <ClCompile Include="..\..\code\Window.cpp" />
+    <ClCompile Include="..\..\code\sources\AudioComponent.cpp" />
+    <ClCompile Include="..\..\code\sources\AudioModule.cpp" />
+    <ClCompile Include="..\..\code\sources\CameraComponent.cpp" />
+    <ClCompile Include="..\..\code\sources\CameraModule.cpp" />
+    <ClCompile Include="..\..\code\sources\Entity.cpp" />
+    <ClCompile Include="..\..\code\sources\InputTask.cpp" />
+    <ClCompile Include="..\..\code\sources\Kernel.cpp" />
+    <ClCompile Include="..\..\code\sources\LightComponent.cpp" />
+    <ClCompile Include="..\..\code\sources\LightModule.cpp" />
+    <ClCompile Include="..\..\code\sources\Module.cpp" />
+    <ClCompile Include="..\..\code\sources\RendererComponent.cpp" />
+    <ClCompile Include="..\..\code\sources\RenderModule.cpp" />
+    <ClCompile Include="..\..\code\sources\Scene.cpp" />
+    <ClCompile Include="..\..\code\sources\ScriptModule.cpp" />
+    <ClCompile Include="..\..\code\sources\TransformComponent.cpp" />
+    <ClCompile Include="..\..\code\sources\TransformModule.cpp" />
+    <ClCompile Include="..\..\code\sources\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\code\Component.hpp" />
-    <ClInclude Include="..\..\code\Factory.hpp" />
-    <ClInclude Include="..\..\code\Engine.hpp" />
-    <ClInclude Include="..\..\code\Entity.hpp" />
-    <ClInclude Include="..\..\code\InputTask.hpp" />
-    <ClInclude Include="..\..\code\Kernel.hpp" />
-    <ClInclude Include="..\..\code\Listener.hpp" />
-    <ClInclude Include="..\..\code\Message.hpp" />
-    <ClInclude Include="..\..\code\MessageHandler.hpp" />
-    <ClInclude Include="..\..\code\Module.hpp" />
-    <ClInclude Include="..\..\code\RendererComponent.hpp" />
-    <ClInclude Include="..\..\code\RenderModule.hpp" />
-    <ClInclude Include="..\..\code\Scene.hpp" />
-    <ClInclude Include="..\..\code\ScriptComponent.hpp" />
-    <ClInclude Include="..\..\code\ScriptModule.hpp" />
-    <ClInclude Include="..\..\code\Task.hpp" />
-    <ClInclude Include="..\..\code\TransformComponent.hpp" />
-    <ClInclude Include="..\..\code\TransformModule.hpp" />
-    <ClInclude Include="..\..\code\Window.hpp" />
+    <ClInclude Include="..\..\code\headers\AudioComponent.hpp" />
+    <ClInclude Include="..\..\code\headers\AudioModule.hpp" />
+    <ClInclude Include="..\..\code\headers\CameraComponent.hpp" />
+    <ClInclude Include="..\..\code\headers\CameraModule.hpp" />
+    <ClInclude Include="..\..\code\headers\Component.hpp" />
+    <ClInclude Include="..\..\code\headers\Entity.hpp" />
+    <ClInclude Include="..\..\code\headers\InputTask.hpp" />
+    <ClInclude Include="..\..\code\headers\Kernel.hpp" />
+    <ClInclude Include="..\..\code\headers\LightComponent.hpp" />
+    <ClInclude Include="..\..\code\headers\LightModule.hpp" />
+    <ClInclude Include="..\..\code\headers\Listener.hpp" />
+    <ClInclude Include="..\..\code\headers\Message.hpp" />
+    <ClInclude Include="..\..\code\headers\MessageHandler.hpp" />
+    <ClInclude Include="..\..\code\headers\Module.hpp" />
+    <ClInclude Include="..\..\code\headers\RendererComponent.hpp" />
+    <ClInclude Include="..\..\code\headers\RenderModule.hpp" />
+    <ClInclude Include="..\..\code\headers\Scene.hpp" />
+    <ClInclude Include="..\..\code\headers\ScriptComponent.hpp" />
+    <ClInclude Include="..\..\code\headers\ScriptModule.hpp" />
+    <ClInclude Include="..\..\code\headers\Task.hpp" />
+    <ClInclude Include="..\..\code\headers\TransformComponent.hpp" />
+    <ClInclude Include="..\..\code\headers\TransformModule.hpp" />
+    <ClInclude Include="..\..\code\headers\Window.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -60,13 +63,13 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -96,7 +99,8 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\libraries\opengl-toolkit\headers;..\..\libraries\cpp-toolkit\headers;..\..\libraries\sdl2\headers;..\..\libraries\tinyobjloader-1.0\include;..\..\libraries\rapidxml\headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\libraries\opengl-toolkit\headers;..\..\libraries\cpp-toolkit\headers;..\..\libraries\sdl2\headers;..\..\libraries\rapidxml\headers;..\..\code\headers;..\..\code\sources;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -112,6 +116,12 @@
       <Command>
       </Command>
     </PreBuildEvent>
+    <Lib>
+      <AdditionalDependencies>sdl2.lib;OpenGL Toolkit.lib;</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>../../libraries/sdl2/lib/DebugLib;../../libraries/opengl-toolkit/lib/DebugLib;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -121,20 +131,28 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\libraries\opengl-toolkit\headers;..\..\libraries\sdl2\headers;..\..\libraries\cpp-toolkit\headers;..\..\libraries\tinyobjloader-1.0\include;..\..\libraries\rapidxml\headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\libraries\opengl-toolkit\headers;..\..\libraries\sdl2\headers;..\..\libraries\cpp-toolkit\headers;..\..\libraries\rapidxml\headers;..\..\code\headers;..\..\code\sources;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>..\..\libraries\opengl-toolkit\lib\Release;..\..\libraries\sdl2\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../libraries/opengl-toolkit/lib/DebugLib;../../libraries/sdl2/lib/DebugLib;</AdditionalLibraryDirectories>
       <AdditionalDependencies>OpenGLToolkit.lib;opengl32.lib;sdl2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
       </Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>sdl2.lib;OpenGL Toolkit.lib;</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>../../libraries/sdl2/lib/ReleaseLib;../../libraries/opengl-toolkit/lib/ReleaseLib;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
